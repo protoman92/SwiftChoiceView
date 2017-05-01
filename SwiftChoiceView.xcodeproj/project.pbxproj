@@ -1,0 +1,602 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		73158829097E408D37677061 /* Pods_SwiftChoiceViewTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D4A4C5BDF37A846301C7E2 /* Pods_SwiftChoiceViewTests.framework */; };
+		9001F3BF18E247CECBD9A8E5 /* Pods_SwiftChoiceView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38403B39A43AE14C487D4E22 /* Pods_SwiftChoiceView.framework */; };
+		D30A0C8A1EB50889001BF816 /* ChoiceSectionHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30A0C891EB50889001BF816 /* ChoiceSectionHolder.swift */; };
+		D31906811EB42DDE00BCE271 /* SwiftChoiceView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D31906771EB42DDE00BCE271 /* SwiftChoiceView.framework */; };
+		D31906881EB42DDE00BCE271 /* SwiftChoiceView.h in Headers */ = {isa = PBXBuildFile; fileRef = D319067A1EB42DDE00BCE271 /* SwiftChoiceView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D31906941EB4305500BCE271 /* UIChoiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31906931EB4305500BCE271 /* UIChoiceListView.swift */; };
+		D31906971EB4309800BCE271 /* ChoiceViewIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31906961EB4309800BCE271 /* ChoiceViewIdentifier.swift */; };
+		D31906991EB431A100BCE271 /* ChoiceItemViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31906981EB431A100BCE271 /* ChoiceItemViewBuilder.swift */; };
+		D319069B1EB438F000BCE271 /* ChoiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319069A1EB438F000BCE271 /* ChoiceDetail.swift */; };
+		D319069D1EB43CD400BCE271 /* ChoiceListViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319069C1EB43CD400BCE271 /* ChoiceListViewDecorator.swift */; };
+		D382A7B11EB6D3DB003CDDBC /* ChoiceItemDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */; };
+		D3FF279C1EB6EC7A0032A2C1 /* UIChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279B1EB6EC7A0032A2C1 /* UIChoiceView.swift */; };
+		D3FF279E1EB6EE010032A2C1 /* ChoiceViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279D1EB6EE010032A2C1 /* ChoiceViewBuilder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D31906821EB42DDE00BCE271 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D319066E1EB42DDD00BCE271 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D31906761EB42DDE00BCE271;
+			remoteInfo = SwiftChoiceView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		38403B39A43AE14C487D4E22 /* Pods_SwiftChoiceView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftChoiceView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D74FBF5DDD10B198FEF72AC /* Pods-SwiftChoiceView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftChoiceView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftChoiceView/Pods-SwiftChoiceView.debug.xcconfig"; sourceTree = "<group>"; };
+		99E882DC67C1F74EAE978B4E /* Pods-SwiftChoiceViewTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftChoiceViewTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftChoiceViewTests/Pods-SwiftChoiceViewTests.release.xcconfig"; sourceTree = "<group>"; };
+		D30A0C891EB50889001BF816 /* ChoiceSectionHolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceSectionHolder.swift; path = model/ChoiceSectionHolder.swift; sourceTree = "<group>"; };
+		D31906771EB42DDE00BCE271 /* SwiftChoiceView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftChoiceView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D319067A1EB42DDE00BCE271 /* SwiftChoiceView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftChoiceView.h; sourceTree = "<group>"; };
+		D319067B1EB42DDE00BCE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D31906801EB42DDE00BCE271 /* SwiftChoiceViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftChoiceViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D31906871EB42DDE00BCE271 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D31906931EB4305500BCE271 /* UIChoiceListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChoiceListView.swift; path = view/UIChoiceListView.swift; sourceTree = "<group>"; };
+		D31906961EB4309800BCE271 /* ChoiceViewIdentifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceViewIdentifier.swift; path = builder/ChoiceViewIdentifier.swift; sourceTree = "<group>"; };
+		D31906981EB431A100BCE271 /* ChoiceItemViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceItemViewBuilder.swift; path = builder/ChoiceItemViewBuilder.swift; sourceTree = "<group>"; };
+		D319069A1EB438F000BCE271 /* ChoiceDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceDetail.swift; path = model/ChoiceDetail.swift; sourceTree = "<group>"; };
+		D319069C1EB43CD400BCE271 /* ChoiceListViewDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceListViewDecorator.swift; path = model/ChoiceListViewDecorator.swift; sourceTree = "<group>"; };
+		D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceItemDecorator.swift; path = model/ChoiceItemDecorator.swift; sourceTree = "<group>"; };
+		D3E0562D3EEC2FD2AA019CB9 /* Pods-SwiftChoiceViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftChoiceViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftChoiceViewTests/Pods-SwiftChoiceViewTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D3FF279B1EB6EC7A0032A2C1 /* UIChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChoiceView.swift; path = view/UIChoiceView.swift; sourceTree = "<group>"; };
+		D3FF279D1EB6EE010032A2C1 /* ChoiceViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceViewBuilder.swift; path = builder/ChoiceViewBuilder.swift; sourceTree = "<group>"; };
+		D4D4A4C5BDF37A846301C7E2 /* Pods_SwiftChoiceViewTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftChoiceViewTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA388A0BEC7FCE57415D8D9D /* Pods-SwiftChoiceView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftChoiceView.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftChoiceView/Pods-SwiftChoiceView.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D31906731EB42DDE00BCE271 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9001F3BF18E247CECBD9A8E5 /* Pods_SwiftChoiceView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D319067D1EB42DDE00BCE271 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31906811EB42DDE00BCE271 /* SwiftChoiceView.framework in Frameworks */,
+				73158829097E408D37677061 /* Pods_SwiftChoiceViewTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		941E7060467823B96E88A218 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				38403B39A43AE14C487D4E22 /* Pods_SwiftChoiceView.framework */,
+				D4D4A4C5BDF37A846301C7E2 /* Pods_SwiftChoiceViewTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AD38EC57939BD1AA8C09C04C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8D74FBF5DDD10B198FEF72AC /* Pods-SwiftChoiceView.debug.xcconfig */,
+				EA388A0BEC7FCE57415D8D9D /* Pods-SwiftChoiceView.release.xcconfig */,
+				D3E0562D3EEC2FD2AA019CB9 /* Pods-SwiftChoiceViewTests.debug.xcconfig */,
+				99E882DC67C1F74EAE978B4E /* Pods-SwiftChoiceViewTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		D319066D1EB42DDD00BCE271 = {
+			isa = PBXGroup;
+			children = (
+				D31906791EB42DDE00BCE271 /* SwiftChoiceView */,
+				D31906841EB42DDE00BCE271 /* SwiftChoiceViewTests */,
+				D31906781EB42DDE00BCE271 /* Products */,
+				AD38EC57939BD1AA8C09C04C /* Pods */,
+				941E7060467823B96E88A218 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D31906781EB42DDE00BCE271 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D31906771EB42DDE00BCE271 /* SwiftChoiceView.framework */,
+				D31906801EB42DDE00BCE271 /* SwiftChoiceViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D31906791EB42DDE00BCE271 /* SwiftChoiceView */ = {
+			isa = PBXGroup;
+			children = (
+				D31906951EB4308300BCE271 /* model */,
+				D31906921EB4304000BCE271 /* builder */,
+				D31906911EB42F6A00BCE271 /* view */,
+				D319067A1EB42DDE00BCE271 /* SwiftChoiceView.h */,
+				D319067B1EB42DDE00BCE271 /* Info.plist */,
+			);
+			path = SwiftChoiceView;
+			sourceTree = "<group>";
+		};
+		D31906841EB42DDE00BCE271 /* SwiftChoiceViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				D31906871EB42DDE00BCE271 /* Info.plist */,
+			);
+			path = SwiftChoiceViewTests;
+			sourceTree = "<group>";
+		};
+		D31906911EB42F6A00BCE271 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				D31906931EB4305500BCE271 /* UIChoiceListView.swift */,
+				D3FF279B1EB6EC7A0032A2C1 /* UIChoiceView.swift */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		D31906921EB4304000BCE271 /* builder */ = {
+			isa = PBXGroup;
+			children = (
+				D31906961EB4309800BCE271 /* ChoiceViewIdentifier.swift */,
+				D31906981EB431A100BCE271 /* ChoiceItemViewBuilder.swift */,
+				D3FF279D1EB6EE010032A2C1 /* ChoiceViewBuilder.swift */,
+			);
+			name = builder;
+			sourceTree = "<group>";
+		};
+		D31906951EB4308300BCE271 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D319069A1EB438F000BCE271 /* ChoiceDetail.swift */,
+				D319069C1EB43CD400BCE271 /* ChoiceListViewDecorator.swift */,
+				D30A0C891EB50889001BF816 /* ChoiceSectionHolder.swift */,
+				D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D31906741EB42DDE00BCE271 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31906881EB42DDE00BCE271 /* SwiftChoiceView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D31906761EB42DDE00BCE271 /* SwiftChoiceView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D319068B1EB42DDE00BCE271 /* Build configuration list for PBXNativeTarget "SwiftChoiceView" */;
+			buildPhases = (
+				41D69B7AFE8D87AFECF2E89A /* [CP] Check Pods Manifest.lock */,
+				D31906721EB42DDE00BCE271 /* Sources */,
+				D31906731EB42DDE00BCE271 /* Frameworks */,
+				D31906741EB42DDE00BCE271 /* Headers */,
+				D31906751EB42DDE00BCE271 /* Resources */,
+				B4B8B451DBEAB63016A5BA6A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftChoiceView;
+			productName = SwiftChoiceView;
+			productReference = D31906771EB42DDE00BCE271 /* SwiftChoiceView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D319067F1EB42DDE00BCE271 /* SwiftChoiceViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D319068E1EB42DDE00BCE271 /* Build configuration list for PBXNativeTarget "SwiftChoiceViewTests" */;
+			buildPhases = (
+				F249080F306928612D8D6E53 /* [CP] Check Pods Manifest.lock */,
+				D319067C1EB42DDE00BCE271 /* Sources */,
+				D319067D1EB42DDE00BCE271 /* Frameworks */,
+				D319067E1EB42DDE00BCE271 /* Resources */,
+				E7F9EFF514DE4CDAED34F4A6 /* [CP] Embed Pods Frameworks */,
+				3B99794462D8176DAAEB8CF2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D31906831EB42DDE00BCE271 /* PBXTargetDependency */,
+			);
+			name = SwiftChoiceViewTests;
+			productName = SwiftChoiceViewTests;
+			productReference = D31906801EB42DDE00BCE271 /* SwiftChoiceViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D319066E1EB42DDD00BCE271 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Swiften;
+				TargetAttributes = {
+					D31906761EB42DDE00BCE271 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = S3V9CCW695;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+					};
+					D319067F1EB42DDE00BCE271 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = S3V9CCW695;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D31906711EB42DDD00BCE271 /* Build configuration list for PBXProject "SwiftChoiceView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D319066D1EB42DDD00BCE271;
+			productRefGroup = D31906781EB42DDE00BCE271 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D31906761EB42DDE00BCE271 /* SwiftChoiceView */,
+				D319067F1EB42DDE00BCE271 /* SwiftChoiceViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D31906751EB42DDE00BCE271 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D319067E1EB42DDE00BCE271 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B99794462D8176DAAEB8CF2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftChoiceViewTests/Pods-SwiftChoiceViewTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41D69B7AFE8D87AFECF2E89A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B4B8B451DBEAB63016A5BA6A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftChoiceView/Pods-SwiftChoiceView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7F9EFF514DE4CDAED34F4A6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftChoiceViewTests/Pods-SwiftChoiceViewTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F249080F306928612D8D6E53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D31906721EB42DDE00BCE271 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D31906971EB4309800BCE271 /* ChoiceViewIdentifier.swift in Sources */,
+				D3FF279C1EB6EC7A0032A2C1 /* UIChoiceView.swift in Sources */,
+				D319069D1EB43CD400BCE271 /* ChoiceListViewDecorator.swift in Sources */,
+				D319069B1EB438F000BCE271 /* ChoiceDetail.swift in Sources */,
+				D382A7B11EB6D3DB003CDDBC /* ChoiceItemDecorator.swift in Sources */,
+				D31906941EB4305500BCE271 /* UIChoiceListView.swift in Sources */,
+				D30A0C8A1EB50889001BF816 /* ChoiceSectionHolder.swift in Sources */,
+				D31906991EB431A100BCE271 /* ChoiceItemViewBuilder.swift in Sources */,
+				D3FF279E1EB6EE010032A2C1 /* ChoiceViewBuilder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D319067C1EB42DDE00BCE271 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D31906831EB42DDE00BCE271 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D31906761EB42DDE00BCE271 /* SwiftChoiceView */;
+			targetProxy = D31906821EB42DDE00BCE271 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		D31906891EB42DDE00BCE271 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D319068A1EB42DDE00BCE271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D319068C1EB42DDE00BCE271 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D74FBF5DDD10B198FEF72AC /* Pods-SwiftChoiceView.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = S3V9CCW695;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftChoiceView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiften.SwiftChoiceView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D319068D1EB42DDE00BCE271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA388A0BEC7FCE57415D8D9D /* Pods-SwiftChoiceView.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = S3V9CCW695;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = SwiftChoiceView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiften.SwiftChoiceView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D319068F1EB42DDE00BCE271 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D3E0562D3EEC2FD2AA019CB9 /* Pods-SwiftChoiceViewTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				DEVELOPMENT_TEAM = S3V9CCW695;
+				INFOPLIST_FILE = SwiftChoiceViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiften.SwiftChoiceViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D31906901EB42DDE00BCE271 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 99E882DC67C1F74EAE978B4E /* Pods-SwiftChoiceViewTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				DEVELOPMENT_TEAM = S3V9CCW695;
+				INFOPLIST_FILE = SwiftChoiceViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.swiften.SwiftChoiceViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D31906711EB42DDD00BCE271 /* Build configuration list for PBXProject "SwiftChoiceView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D31906891EB42DDE00BCE271 /* Debug */,
+				D319068A1EB42DDE00BCE271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D319068B1EB42DDE00BCE271 /* Build configuration list for PBXNativeTarget "SwiftChoiceView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D319068C1EB42DDE00BCE271 /* Debug */,
+				D319068D1EB42DDE00BCE271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D319068E1EB42DDE00BCE271 /* Build configuration list for PBXNativeTarget "SwiftChoiceViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D319068F1EB42DDE00BCE271 /* Debug */,
+				D31906901EB42DDE00BCE271 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D319066E1EB42DDD00BCE271 /* Project object */;
+}

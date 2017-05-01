@@ -1,0 +1,42 @@
+PODS:
+  - RxBlocking (3.4.0):
+    - RxSwift (~> 3.4)
+  - RxCocoa (3.4.0):
+    - RxSwift (~> 3.4)
+  - RxSwift (3.4.0)
+  - RxTest (3.4.0):
+    - RxSwift (~> 3.4)
+  - SwiftBaseViews/Main (1.1.2):
+    - SwiftUIUtilities/Main
+  - SwiftUIUtilities/Main (1.5.2):
+    - SwiftUtilities/Main
+  - SwiftUIUtilitiesTests/Main (1.5.2):
+    - SwiftUtilities/Main
+    - SwiftUtilitiesTests/Main
+  - SwiftUtilities/Main (1.4.0):
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+  - SwiftUtilitiesTests/Main (1.4.0):
+    - RxBlocking (~> 3.0)
+    - RxCocoa (~> 3.0)
+    - RxSwift (~> 3.0)
+    - RxTest (~> 3.0)
+
+DEPENDENCIES:
+  - SwiftBaseViews/Main
+  - SwiftUIUtilitiesTests/Main
+
+SPEC CHECKSUMS:
+  RxBlocking: 1797b8c1a3ad7b08965145e6e2294c2e101515aa
+  RxCocoa: d14ef6b6029e1ddc6e966508c09289090de68ff9
+  RxSwift: 3789a1af753002a14edecdb698a2424624296a9c
+  RxTest: beb6beb882cf1dcac5fc9fdbd4760a5254e7f3a6
+  SwiftBaseViews: 8f935c2deadddadde9a24370ca84def15cd00f73
+  SwiftUIUtilities: 97a81c6aadcb3a6b4f7317a67ddcadcb7279e8f1
+  SwiftUIUtilitiesTests: d7c51cf9fd6620da839e6a2bf4b2d6eb7de978e7
+  SwiftUtilities: a006686fcd793e828c3130295f3f0f30409cd8d6
+  SwiftUtilitiesTests: 1d56cc2d948f8a1f7329e8d5f2d318e8e86014c9
+
+PODFILE CHECKSUM: ac1fdb855cc8a2146cc572c31a5686759f92fa10
+
+COCOAPODS: 1.2.1
