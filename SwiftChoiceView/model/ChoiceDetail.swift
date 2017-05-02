@@ -6,10 +6,11 @@
 //  Copyright © 2017 Swiften. All rights reserved.
 //
 
+import SwiftBaseViews
 import SwiftUtilities
 
 /// Implement this protocol to provide information about each choice item.
-public protocol ChoiceDetailType {
+public protocol ChoiceDetailType: SectionableListItemType {
     
     /// Use this identifier to differentiate different ChoiceDetailType
     /// instances.

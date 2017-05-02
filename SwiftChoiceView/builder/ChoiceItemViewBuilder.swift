@@ -72,7 +72,7 @@ open class ChoiceItemViewBuilder {
         if let choiceTitle = subviews.filter({
             $0.accessibilityIdentifier == choiceTitleId
         }).first {
-            let cs = constraints(forTitle: choiceTitle, using: choice)
+            let cs = constraints(forChoiceTitle: choiceTitle, using: choice)
             allConstraints.append(contentsOf: cs)
         }
         
@@ -85,7 +85,8 @@ open class ChoiceItemViewBuilder {
     ///   - title: A UIView instance.
     ///   - choice: A ChoiceDetailType instance.
     /// - Returns: An Array of NSLayoutConstraint.
-    open func constraints(forTitle title: UIView, using choice: ChoiceDetailType)
+    open func constraints(forChoiceTitle title: UIView,
+                          using choice: ChoiceDetailType)
         -> [NSLayoutConstraint]
     {
         return FitConstraintSet.builder()

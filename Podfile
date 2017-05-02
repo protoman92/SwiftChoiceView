@@ -7,6 +7,7 @@ target 'SwiftChoiceView' do
 
   # Pods for SwiftChoiceView
   pod 'SwiftBaseViews/Main'
+  pod 'SwiftDialogController/Main'
 
   target 'SwiftChoiceViewTests' do
     inherit! :search_paths

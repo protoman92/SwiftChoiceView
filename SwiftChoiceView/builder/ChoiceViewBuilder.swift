@@ -11,9 +11,7 @@ import SwiftUIUtilities
 import UIKit
 
 /// Implement this protocol to provide subviews for a UIChoiceView instance.
-public protocol ChoiceViewBuilderType: ViewBuilderType {
-    
-}
+public protocol ChoiceViewBuilderType: ViewBuilderType {}
 
 /// This class will be the default builder whenever a ChoiceViewBuilderType is
 /// required.

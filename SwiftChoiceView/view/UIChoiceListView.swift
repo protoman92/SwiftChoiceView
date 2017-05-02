@@ -73,12 +73,7 @@ extension UIChoiceListView.Presenter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView,
                         numberOfItemsInSection section: Int) -> Int {
-        guard let section = choices.element(at: section) else {
-            debugException()
-            return 0
-        }
-        
-        return section.items.count
+        return choices.element(at: section)?.items.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -97,9 +92,10 @@ extension UIChoiceListView.Presenter: UICollectionViewDataSource {
         
         let builder = choice.viewBuilder()
         cell.populateSubviews(with: builder)
-        builder.configure(for: cell)
         return cell
     }
 }
+
+extension UIChoiceListView.Presenter: ChoiceListViewDecoratorType {}
 
 final class UIChoiceCell: UICollectionViewCell {}
