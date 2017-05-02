@@ -35,6 +35,7 @@ public final class UIChoiceListView: UIBaseCollectionView {
             super.init(view: view)
             view.backgroundColor = .clear
             view.register(with: UIChoiceCell.self)
+            view.register(with: UIChoiceHeader.self)
             setupChoiceObserver(for: view, with: self)
         }
         
@@ -95,6 +96,37 @@ extension UIChoiceListView.Presenter {
         cell.populateSubviews(with: builder)
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        let viewType = UIChoiceHeader.self
+        
+        guard
+            let view = collectionView.deque(with: viewType, at: indexPath),
+            let section = choices.element(at: indexPath.section)?.section
+        else {
+            return UICollectionReusableView()
+        }
+        
+        let builder = section.viewBuilder()
+        view.populateSubviews(with: builder)
+        return view
+    }
+}
+
+extension UIChoiceListView.Presenter {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int)
+        -> CGSize
+    {
+        guard let _ = choices.element(at: section)?.section else {
+            return CGSize.zero
+        }
+        
+        return CGSize(width: collectionView.bounds.width, height: sectionHeight)
+    }
 }
 
 extension UIChoiceListView.Presenter {
@@ -103,8 +135,18 @@ extension UIChoiceListView.Presenter {
     override open var itemHeight: CGFloat {
         return decorator?.itemHeight ?? Size.medium.value ?? 0
     }
+    
+    /// Override this to use a default sectionHeight if no decorator is set.
+    override open var sectionHeight: CGFloat {
+        return decorator?.sectionHeight ?? Size.small.value ?? 0
+    }
 }
 
 extension UIChoiceListView.Presenter: ChoiceListViewDecoratorType {}
 
 final class UIChoiceCell: UICollectionViewCell {}
+final class UIChoiceHeader: UICollectionReusableView {
+    static var kind: ReusableViewKind { return .header }
+}
+
+extension UIChoiceHeader: ReusableViewIdentifierType {}

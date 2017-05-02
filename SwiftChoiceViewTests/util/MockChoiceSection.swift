@@ -53,4 +53,7 @@ public extension MockChoiceSection {
 
 public class ChoiceSectionDecorator: ListHeaderDecoratorType {
     public init() {}
+    public var backgroundColor: UIColor { return .darkGray }
+    public var headerTitleTextColor: UIColor { return .white }
+    public var headerTitleTextAlignment: NSTextAlignment { return .center }
 }
