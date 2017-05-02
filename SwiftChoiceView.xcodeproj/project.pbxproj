@@ -29,6 +29,7 @@
 		D31DB0631EB8539600473178 /* UIChoiceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31906931EB4305500BCE271 /* UIChoiceListView.swift */; };
 		D31DB0641EB8539600473178 /* UIBaseChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279B1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift */; };
 		D31DB0651EB8539600473178 /* MockChoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31DB0581EB84B1C00473178 /* MockChoice.swift */; };
+		D31DB0671EB862BA00473178 /* UIChoiceListViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31DB0661EB862BA00473178 /* UIChoiceListViewTests.swift */; };
 		D382A7B11EB6D3DB003CDDBC /* ChoiceItemDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */; };
 		D3FF279C1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279B1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift */; };
 		D3FF279E1EB6EE010032A2C1 /* ChoiceViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279D1EB6EE010032A2C1 /* ChoiceViewBuilder.swift */; };
@@ -62,6 +63,7 @@
 		D31DB0551EB84B0C00473178 /* UIBaseChoiceViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBaseChoiceViewTests.swift; path = test/UIBaseChoiceViewTests.swift; sourceTree = "<group>"; };
 		D31DB0581EB84B1C00473178 /* MockChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockChoice.swift; path = util/MockChoice.swift; sourceTree = "<group>"; };
 		D31DB05A1EB84FC400473178 /* MockChoiceSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockChoiceSection.swift; path = util/MockChoiceSection.swift; sourceTree = "<group>"; };
+		D31DB0661EB862BA00473178 /* UIChoiceListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChoiceListViewTests.swift; path = test/UIChoiceListViewTests.swift; sourceTree = "<group>"; };
 		D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceItemDecorator.swift; path = model/ChoiceItemDecorator.swift; sourceTree = "<group>"; };
 		D3E0562D3EEC2FD2AA019CB9 /* Pods-SwiftChoiceViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftChoiceViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftChoiceViewTests/Pods-SwiftChoiceViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3FF279B1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBaseChoiceView.swift; path = view/UIBaseChoiceView.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				D31DB0551EB84B0C00473178 /* UIBaseChoiceViewTests.swift */,
+				D31DB0661EB862BA00473178 /* UIChoiceListViewTests.swift */,
 			);
 			name = test;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				D31DB05C1EB8539600473178 /* ChoiceDetail.swift in Sources */,
 				D31DB05D1EB8539600473178 /* ChoiceListViewDecorator.swift in Sources */,
 				D31DB05E1EB8539600473178 /* ChoiceSectionHolder.swift in Sources */,
+				D31DB0671EB862BA00473178 /* UIChoiceListViewTests.swift in Sources */,
 				D31DB05F1EB8539600473178 /* ChoiceItemDecorator.swift in Sources */,
 				D31DB0601EB8539600473178 /* ChoiceViewIdentifier.swift in Sources */,
 				D31DB0611EB8539600473178 /* ChoiceItemViewBuilder.swift in Sources */,

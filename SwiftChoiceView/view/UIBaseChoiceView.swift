@@ -25,15 +25,6 @@ public class UIBaseChoiceView: UIView {
     public lazy var choicePresenter
         : ChoicePresenter
         = self.choicePresenterType.init(view: self)
-    
-    /// Initialize with a ChoiceViewBuilderType instance. This shall have
-    /// preference over init(with:) that accepts a base ViewBuilderType.
-    ///
-    /// - Parameter builder: A ChoiceViewBuilderType instance.
-    public convenience init(with builder: ChoiceViewBuilderType) {
-        self.init()
-        populateSubviews(with: builder)
-    }
 }
 
 /// Presenter class for UIBaseChoiceView. We separate it from UIBaseChoiceView

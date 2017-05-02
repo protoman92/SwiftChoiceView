@@ -11,8 +11,8 @@ import XCTest
 @testable import SwiftChoiceView
 
 class UIBaseChoiceViewTests: XCTestCase {
-    var choiceView: UIBaseChoiceView!
-    var presenter: ChoicePresenter!
+    fileprivate var choiceView: UIBaseChoiceView!
+    fileprivate var presenter: ChoicePresenter!
     
     override func setUp() {
         super.setUp()
@@ -36,7 +36,6 @@ class UIBaseChoiceViewTests: XCTestCase {
         let addedSectionHolders = choiceView.choiceListView!.choices
         
         for (h1, h2) in zip(sectionHolders, addedSectionHolders) {
-            print(h1, h2)
             XCTAssertEqual(h1.section?.identifier, h2.section?.identifier)
         }
     }

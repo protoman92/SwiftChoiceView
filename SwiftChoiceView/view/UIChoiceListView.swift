@@ -33,8 +33,8 @@ public final class UIChoiceListView: UIBaseCollectionView {
         init(view: UIChoiceListView) {
             rxChoices = Variable<[ChoiceSectionHolder]>([])
             super.init(view: view)
+            view.backgroundColor = .clear
             view.register(with: UIChoiceCell.self)
-            view.dataSource = self
             setupChoiceObserver(for: view, with: self)
         }
         
@@ -48,8 +48,8 @@ public final class UIChoiceListView: UIBaseCollectionView {
         func setupChoiceObserver(for view: UIChoiceListView,
                                  with current: Presenter) {
             rxChoices.asObservable()
-                .doOnNext({[weak self, weak view] _ in
-                    self?.reloadData(for: view)
+                .doOnNext({[weak current, weak view] _ in
+                    current?.reloadData(for: view)
                 })
                 .subscribe()
                 .addDisposableTo(disposeBag)
@@ -66,18 +66,18 @@ public extension UIChoiceListView {
     }
 }
 
-extension UIChoiceListView.Presenter: UICollectionViewDataSource {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
+extension UIChoiceListView.Presenter {
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return choices.count
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 numberOfItemsInSection section: Int) -> Int {
         return choices.element(at: section)?.items.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath)
+    override func collectionView(_ collectionView: UICollectionView,
+                                 cellForItemAt indexPath: IndexPath)
         -> UICollectionViewCell
     {
         let cls = UIChoiceCell.self
@@ -87,12 +87,21 @@ extension UIChoiceListView.Presenter: UICollectionViewDataSource {
             let section = choices.element(at: indexPath.section),
             let choice = section.items.element(at: indexPath.row)
         else {
+            debugException()
             return UICollectionViewCell()
         }
         
         let builder = choice.viewBuilder()
         cell.populateSubviews(with: builder)
         return cell
+    }
+}
+
+extension UIChoiceListView.Presenter {
+    
+    /// Override this to use a default itemHeight if no decorator is set.
+    override open var itemHeight: CGFloat {
+        return decorator?.itemHeight ?? Size.medium.value ?? 0
     }
 }
 

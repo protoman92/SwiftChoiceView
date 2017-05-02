@@ -11,7 +11,7 @@ import SwiftUIUtilities
 import UIKit
 
 /// Implement this protocol to provide subviews for a UIChoiceView instance.
-public protocol ChoiceViewBuilderType: ViewBuilderType {}
+@objc public protocol ChoiceViewBuilderType: ViewBuilderType {}
 
 /// This class will be the default builder whenever a ChoiceViewBuilderType is
 /// required.
@@ -30,11 +30,9 @@ open class ChoiceViewBuilder {
     ///
     /// - Returns: A ViewBuilderComponent instance.
     open func choiceList() -> UIChoiceListView {
-        let choiceList = UIChoiceListView(
-            frame: CGRect.zero,
-            collectionViewLayout: UICollectionViewLayout()
-        )
-        
+        let layout = UICollectionViewFlowLayout()
+        let frame = CGRect.zero
+        let choiceList = UIChoiceListView(frame: frame, collectionViewLayout: layout)
         choiceList.accessibilityIdentifier = choiceListId
         return choiceList
     }
