@@ -16,7 +16,9 @@ class UIBaseChoiceViewTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        choiceView = UIBaseChoiceView(with: ChoiceViewBuilder())
+        let decorator = ChoiceViewDecorator()
+        let builder = ChoiceViewBuilder(with: decorator)
+        choiceView = UIBaseChoiceView(with: builder)
         presenter = choiceView.choicePresenter
     }
     
@@ -39,4 +41,8 @@ class UIBaseChoiceViewTests: XCTestCase {
             XCTAssertEqual(h1.section?.identifier, h2.section?.identifier)
         }
     }
+}
+
+fileprivate class ChoiceViewDecorator: ChoiceViewDecoratorType {
+    fileprivate init() {}
 }

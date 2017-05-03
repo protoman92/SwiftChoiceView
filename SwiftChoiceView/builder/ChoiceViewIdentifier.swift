@@ -14,6 +14,9 @@ public extension ChoiceViewIdentifierType {
     /// Identifier for choice list view. Usually this would be a 
     /// UICollectionView that accepts a list of choices.
     public var choiceListId: String { return "choiceList" }
+    
+    /// Identifier for the label that will serve as the choice title view.
+    public var choiceTitleId: String { return "choiceTitle" }
 }
 
 /// Implement this protocol to provide choice item view identifiers.

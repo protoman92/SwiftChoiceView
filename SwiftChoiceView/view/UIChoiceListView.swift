@@ -34,9 +34,12 @@ public final class UIChoiceListView: UIBaseCollectionView {
             rxChoices = Variable<[ChoiceSectionHolder]>([])
             super.init(view: view)
             view.backgroundColor = .clear
+            view.allowsSelection = true
+            view.allowsMultipleSelection = false
             view.register(with: UIChoiceCell.self)
             view.register(with: UIChoiceHeader.self)
             setupChoiceObserver(for: view, with: self)
+            setupSelectedObserver(for: view, with: self)
         }
         
         /// Setup choice observer so that when choices are changed, we can
@@ -53,7 +56,61 @@ public final class UIChoiceListView: UIBaseCollectionView {
                     current?.reloadData(for: view)
                 })
                 .subscribe()
-                .addDisposableTo(disposeBag)
+                .addDisposableTo(current.disposeBag)
+        }
+        
+        /// Setup click observer to perform some work when an IndexPath is
+        /// selected (e.g. highlight the cell)
+        ///
+        /// - Parameters:
+        ///   - view: The current UIChoiceListView instance.
+        ///   - current: The current Presenter instance.
+        func setupSelectedObserver(for view: UIChoiceListView,
+                                   with current: Presenter) {
+            view.rx.itemSelected
+                .asObservable()
+                .doOnNext({[weak view, weak current] in
+                    current?.toggleCellHighlight(toBe: true,
+                                                 at: $0,
+                                                 with: view,
+                                                 with: current)
+                })
+                .subscribe()
+                .addDisposableTo(current.disposeBag)
+        }
+        
+        /// Setup click observer to perform some work when an IndexPath is
+        /// deselected (e.g. unhighlight the cell)
+        ///
+        /// - Parameters:
+        ///   - view: The current UIChoiceListView instance.
+        ///   - current: The current Presenter instance.
+        func setupDeselectedObserver(for view: UIChoiceListView,
+                                     with current: Presenter) {
+            view.rx.itemDeselected
+                .asObservable()
+                .doOnNext({[weak view, weak current] in
+                    current?.toggleCellHighlight(toBe: false,
+                                                 at: $0,
+                                                 with: view,
+                                                 with: current)
+                })
+                .subscribe()
+                .addDisposableTo(current.disposeBag)
+        }
+        
+        /// Highlight a cell once it is selected, or unhighlight it if it is
+        /// not.
+        ///
+        /// - Parameters:
+        ///   - indexPath: The selected IndexPath.
+        ///   - view: The current UICollectionView instance.
+        ///   - current: The current Presenter instance.
+        func toggleCellHighlight(toBe highlighted: Bool,
+                                 at indexPath: IndexPath,
+                                 with view: UICollectionView?,
+                                 with current: Presenter?) {
+            view?.cellForItem(at: indexPath)?.isHighlighted = highlighted
         }
     }
 }
@@ -121,11 +178,13 @@ extension UIChoiceListView.Presenter {
                         referenceSizeForHeaderInSection section: Int)
         -> CGSize
     {
-        guard let _ = choices.element(at: section)?.section else {
+        guard choices.element(at: section)?.section != nil else {
             return CGSize.zero
         }
         
-        return CGSize(width: collectionView.bounds.width, height: sectionHeight)
+        let width = collectionView.bounds.width
+        let height = sectionHeight
+        return CGSize(width: width, height: height)
     }
 }
 
@@ -145,6 +204,7 @@ extension UIChoiceListView.Presenter {
 extension UIChoiceListView.Presenter: ChoiceListViewDecoratorType {}
 
 final class UIChoiceCell: UICollectionViewCell {}
+
 final class UIChoiceHeader: UICollectionReusableView {
     static var kind: ReusableViewKind { return .header }
 }

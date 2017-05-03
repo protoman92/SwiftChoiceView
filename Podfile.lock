@@ -6,13 +6,13 @@ PODS:
   - RxSwift (3.4.1)
   - RxTest (3.4.1):
     - RxSwift (~> 3.4)
-  - SwiftBaseViews/Main (1.1.4):
+  - SwiftBaseViews/Main (1.1.6):
     - SwiftUIUtilities/Main
-  - SwiftDialogController/Main (1.0.7):
+  - SwiftDialogController/Main (1.0.9):
     - SwiftBaseViews/Main
-  - SwiftUIUtilities/Main (1.5.2):
+  - SwiftUIUtilities/Main (1.5.7):
     - SwiftUtilities/Main
-  - SwiftUIUtilitiesTests/Main (1.5.2):
+  - SwiftUIUtilitiesTests/Main (1.5.7):
     - SwiftUtilities/Main
     - SwiftUtilitiesTests/Main
   - SwiftUtilities/Main (1.4.0):
@@ -34,10 +34,10 @@ SPEC CHECKSUMS:
   RxCocoa: a8a5f1d061d0043e28f56976829f31ce63e8eb09
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
   RxTest: a6fd6e4069face7c6488f96f6c42296b3e44db48
-  SwiftBaseViews: 5d3955258dc89cc6c54a342eb865c4af343e3c4c
-  SwiftDialogController: 790a71c4dab4deebdcc91ca9c3d3f06e4f053a4c
-  SwiftUIUtilities: 97a81c6aadcb3a6b4f7317a67ddcadcb7279e8f1
-  SwiftUIUtilitiesTests: d7c51cf9fd6620da839e6a2bf4b2d6eb7de978e7
+  SwiftBaseViews: ed80e19113a1033184f43302843ded642100719f
+  SwiftDialogController: f455b01cb1d4333dbd42329b8c8d52eb51dd50ff
+  SwiftUIUtilities: dbd5b4cb78367d5943fbe156820072959bcfcec1
+  SwiftUIUtilitiesTests: 9772cf0c8de89ee3196c86862eaa8ea5c4f8069f
   SwiftUtilities: a006686fcd793e828c3130295f3f0f30409cd8d6
   SwiftUtilitiesTests: 1d56cc2d948f8a1f7329e8d5f2d318e8e86014c9
 
