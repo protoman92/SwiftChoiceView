@@ -10,7 +10,7 @@ import UIKit
 
 /// Implement this protocol to provide appearance configurations for
 /// UIBaseChoiceView subclasses.
-@objc public protocol ChoiceViewDecoratorType {
+@objc public protocol ChoiceViewDecoratorType: ChoiceListViewDecoratorType {
     
     /// This value will be used to describe what the choices are used for.
     /// Use a default value if not implemented.

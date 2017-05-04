@@ -13,25 +13,31 @@ import UIKit
 @objc public protocol ChoiceItemDecoratorType {
     
     /// If this is not declared, use a default value.
-    @objc optional var choiceBackgroundColor: UIColor { get }
+    @objc optional var choiceItemBackgroundColor: UIColor { get }
     
     /// If this is not declared, use a default value.
-    @objc optional var choiceTitleFontName: String { get }
+    @objc optional var choiceItemTitleFontName: String { get }
     
     /// If this is not declared, use a default value (most preferably
     /// TextSize.medium.value).
-    @objc optional var choiceTitleFontSize: CGFloat { get }
+    @objc optional var choiceItemTitleFontSize: CGFloat { get }
     
     /// If this is not declared, use a default value.
-    @objc optional var choiceTitleTextColor: UIColor { get }
+    @objc optional var choiceItemTitleTextColor: UIColor { get }
+    
+    /// If this is not declared, use a default value.
+    @objc optional var choiceItemHighlightedColor: UIColor { get }
+    
+    /// If this is not declared, use a default value.
+    @objc optional var choiceItemHighlightedTextColor: UIColor { get }
 }
 
 public extension ChoiceItemDecoratorType {
     
     /// Use this UIFont instance for the choice label.
-    public var choiceTitleFont: UIFont? {
-        let fontName = choiceTitleFontName ?? ""
-        let fontSize = choiceTitleFontSize ?? 0
+    public var choiceItemTitleFont: UIFont? {
+        let fontName = choiceItemTitleFontName ?? ""
+        let fontSize = choiceItemTitleFontSize ?? 0
         return UIFont(name: fontName, size: fontSize)
     }
 }

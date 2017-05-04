@@ -26,5 +26,5 @@ public extension ChoiceItemViewIdentifierType {
     
     /// Identifier for the choice title - a label that displays a human-readble
     /// description of the choice.
-    public var choiceTitleId: String { return "choiceTitle" }
+    public var choiceItemTitleId: String { return "choiceTitle" }
 }

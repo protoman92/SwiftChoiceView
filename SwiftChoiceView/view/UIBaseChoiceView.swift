@@ -6,6 +6,7 @@
 //  Copyright © 2017 Swiften. All rights reserved.
 //
 
+import RxSwift
 import SwiftBaseViews
 import UIKit
 
@@ -48,6 +49,11 @@ public extension UIBaseChoiceView {
     public var choices: [ChoiceSectionHolder] {
         get { return choiceListView?.choices ?? [] }
         set { choiceListView?.choices = newValue }
+    }
+    
+    /// Subscribe to this Observable to receive selection notifications.
+    public var rxSelection: Observable<ChoiceDetailType> {
+        return choiceListView?.rxSelection ?? Observable.empty()
     }
 }
 

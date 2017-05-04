@@ -36,10 +36,11 @@ public final class UIChoiceListView: UIBaseCollectionView {
             view.backgroundColor = .clear
             view.allowsSelection = true
             view.allowsMultipleSelection = false
+            view.showsHorizontalScrollIndicator = false
+            view.showsVerticalScrollIndicator = false
             view.register(with: UIChoiceCell.self)
             view.register(with: UIChoiceHeader.self)
             setupChoiceObserver(for: view, with: self)
-            setupSelectedObserver(for: view, with: self)
         }
         
         /// Setup choice observer so that when choices are changed, we can
@@ -59,58 +60,90 @@ public final class UIChoiceListView: UIBaseCollectionView {
                 .addDisposableTo(current.disposeBag)
         }
         
-        /// Setup click observer to perform some work when an IndexPath is
-        /// selected (e.g. highlight the cell)
-        ///
-        /// - Parameters:
-        ///   - view: The current UIChoiceListView instance.
-        ///   - current: The current Presenter instance.
-        func setupSelectedObserver(for view: UIChoiceListView,
-                                   with current: Presenter) {
-            view.rx.itemSelected
-                .asObservable()
-                .doOnNext({[weak view, weak current] in
-                    current?.toggleCellHighlight(toBe: true,
-                                                 at: $0,
-                                                 with: view,
-                                                 with: current)
-                })
-                .subscribe()
-                .addDisposableTo(current.disposeBag)
-        }
-        
-        /// Setup click observer to perform some work when an IndexPath is
-        /// deselected (e.g. unhighlight the cell)
-        ///
-        /// - Parameters:
-        ///   - view: The current UIChoiceListView instance.
-        ///   - current: The current Presenter instance.
-        func setupDeselectedObserver(for view: UIChoiceListView,
-                                     with current: Presenter) {
-            view.rx.itemDeselected
-                .asObservable()
-                .doOnNext({[weak view, weak current] in
-                    current?.toggleCellHighlight(toBe: false,
-                                                 at: $0,
-                                                 with: view,
-                                                 with: current)
-                })
-                .subscribe()
-                .addDisposableTo(current.disposeBag)
-        }
-        
         /// Highlight a cell once it is selected, or unhighlight it if it is
-        /// not.
+        /// not. The arguments are optional because we are weakly referencing
+        /// them in order to avoid strong captures.
         ///
         /// - Parameters:
-        ///   - indexPath: The selected IndexPath.
+        ///   - selected: A Bool value.
+        ///   - cell: A UICollectionViewCell instance.
+        ///   - indexPath: The current IndexPath of the cell. This value
+        ///                will be used as a backup when indexPath(for:)
+        ///                returns nil (e.g. when the cell is being reused
+        ///                and dequeued, but is not yet visible, while the 
+        ///                collectionView is bouncing up after being flung up).
         ///   - view: The current UICollectionView instance.
         ///   - current: The current Presenter instance.
-        func toggleCellHighlight(toBe highlighted: Bool,
-                                 at indexPath: IndexPath,
-                                 with view: UICollectionView?,
-                                 with current: Presenter?) {
-            view?.cellForItem(at: indexPath)?.isHighlighted = highlighted
+        func onCellSelectionChanged(toBe selected: Bool,
+                                    for cell: UICollectionViewCell?,
+                                    at indexPath: IndexPath?,
+                                    with view: UICollectionView?,
+                                    with current: Presenter?) {
+            guard
+                let current = current,
+                let cell = cell,
+                let indexPath = view?.indexPath(for: cell) ?? indexPath,
+                let choice = current.choices
+                    .element(at: indexPath.section)?
+                    .items.element(at: indexPath.row),
+                let itemTitle = cell.subviews.filter({
+                    $0.accessibilityIdentifier == current.choiceItemTitleId
+                }).first as? UILabel
+            else {
+                return
+            }
+
+            let decorator = choice.decorator
+            let background: UIColor
+            let textColor: UIColor
+            
+            if selected {
+                background = decorator.choiceItemHighlightedColor ?? .darkGray
+                textColor = decorator.choiceItemHighlightedTextColor ?? .white
+            } else {
+                background = .clear
+                textColor = decorator.choiceItemTitleTextColor ?? .darkGray
+            }
+            
+            let animations: () -> Void = {
+                cell.layer.backgroundColor = background.cgColor
+                itemTitle.textColor = textColor
+            }
+            
+            // Use a transition animation to animate background color changes.
+            UIView.transition(with: cell,
+                              duration: Duration.short.rawValue,
+                              options: .curveEaseInOut,
+                              animations: animations,
+                              completion: nil)
+        }
+        
+        /// Setup the selection observer for each cell. When a cell is selected
+        /// or deselected, we mark it with a different background color and 
+        /// change its text color as well.
+        ///
+        /// This method needs to be called on each cell that is dequeued.
+        ///
+        /// - Parameters:
+        ///   - cell: A UIChoiceCell instance.
+        ///   - indexPath: The cell's index path.
+        ///   - view: A UICollectionView instance.
+        ///   - current: The current Presenter instance.
+        func setupSelectionObserver(for cell: UIChoiceCell,
+                                    at indexPath: IndexPath,
+                                    with view: UICollectionView,
+                                    with current: Presenter) {
+            cell.selectionObserver
+                .asObservable()
+                .doOnNext({[weak current, weak view, weak cell] in
+                    current?.onCellSelectionChanged(toBe: $0,
+                                                    for: cell,
+                                                    at: indexPath,
+                                                    with: view,
+                                                    with: current)
+                })
+                .subscribe()
+                .addDisposableTo(current.disposeBag)
         }
     }
 }
@@ -121,6 +154,17 @@ public extension UIChoiceListView {
     public var choices: [ChoiceSectionHolder] {
         get { return presenter.rxChoices.value }
         set { presenter.rxChoices.value = newValue }
+    }
+    
+    /// Subscribe to this Observable to get notified when an item is selected.
+    public var rxSelection: Observable<ChoiceDetailType> {
+        return rx.itemSelected.asObservable()
+            .map({[weak self] in
+                self?.choices
+                    .element(at: $0.section)?
+                    .items.element(at: $0.row)
+            })
+            .filter({$0 != nil}).map({$0!})
     }
 }
 
@@ -149,8 +193,17 @@ extension UIChoiceListView.Presenter {
             return UICollectionViewCell()
         }
         
+        // Remove all subviews to avoid duplicates when reusing cells.
+        cell.subviews.forEach({$0.removeFromSuperview()})
+        
         let builder = choice.viewBuilder()
         cell.populateSubviews(with: builder)
+        
+        setupSelectionObserver(for: cell,
+                               at: indexPath,
+                               with: collectionView,
+                               with: self)
+        
         return cell
     }
     
@@ -188,7 +241,7 @@ extension UIChoiceListView.Presenter {
     }
 }
 
-extension UIChoiceListView.Presenter {
+extension UIChoiceListView.Presenter: ChoiceListViewDecoratorType {
     
     /// Override this to use a default itemHeight if no decorator is set.
     override open var itemHeight: CGFloat {
@@ -199,11 +252,24 @@ extension UIChoiceListView.Presenter {
     override open var sectionHeight: CGFloat {
         return decorator?.sectionHeight ?? Size.small.value ?? 0
     }
+    
+    override open var sectionSpacing: CGFloat {
+        return decorator?.sectionSpacing ?? Size.smallest.value ?? 0
+    }
 }
 
-extension UIChoiceListView.Presenter: ChoiceListViewDecoratorType {}
+extension UIChoiceListView.Presenter: ChoiceItemViewIdentifierType {}
 
-final class UIChoiceCell: UICollectionViewCell {}
+final class UIChoiceCell: UICollectionViewCell {
+    
+    // Use this instead of isSelected.
+    let selectionObserver = Variable<Bool>(false)
+    
+    override var isSelected: Bool {
+        get { return selectionObserver.value }
+        set { selectionObserver.value = newValue }
+    }
+}
 
 final class UIChoiceHeader: UICollectionReusableView {
     static var kind: ReusableViewKind { return .header }

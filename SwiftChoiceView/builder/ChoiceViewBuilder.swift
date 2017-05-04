@@ -127,7 +127,7 @@ open class ChoiceViewBuilder {
                                          toItem: titleLabel,
                                          attribute: .bottom,
                                          multiplier: 1,
-                                         constant: 0)
+                                         constant: Space.small.value ?? 0)
             
             constraints.append(top)
         } else {
@@ -181,6 +181,12 @@ open class ChoiceViewBuilder {
     open func configure(for view: UIView) {
         let subviews = view.subviews
         
+        if let choiceList = subviews.filter({
+            $0.accessibilityIdentifier == choiceListId
+        }).first as? UIChoiceListView {
+            configure(choiceList: choiceList, using: self)
+        }
+        
         if let titleLabel = subviews.filter({
             $0.accessibilityIdentifier == choiceTitleId
         }).first as? UILabel {
@@ -199,6 +205,16 @@ open class ChoiceViewBuilder {
         title.textAlignment = decorator.choiceTitleTextAlignment ?? .center
         title.textColor = decorator.choiceTitleTextColor
         title.font = decorator.choiceTitleFont
+    }
+    
+    /// Configure the choice list using a ChoiceViewDecoratorType instance.
+    ///
+    /// - Parameters:
+    ///   - choiceList: A UIChoiceListView instance.
+    ///   - decorator: A ChoiceViewDecoratorType instance.
+    open func configure(choiceList: UIChoiceListView,
+                        using decorator: ChoiceViewDecoratorType) {
+        choiceList.decorator = decorator
     }
 }
 

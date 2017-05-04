@@ -55,7 +55,7 @@ open class ChoiceItemViewBuilder {
     /// - Returns: A UILabel instance.
     open func choiceTitle(using choice: ChoiceDetailType) -> UILabel {
         let title = UILabel()
-        title.accessibilityIdentifier = choiceTitleId
+        title.accessibilityIdentifier = choiceItemTitleId
         return title
     }
     
@@ -70,7 +70,7 @@ open class ChoiceItemViewBuilder {
         var allConstraints = [NSLayoutConstraint]()
         
         if let choiceTitle = subviews.filter({
-            $0.accessibilityIdentifier == choiceTitleId
+            $0.accessibilityIdentifier == choiceItemTitleId
         }).first {
             let cs = constraints(forChoiceTitle: choiceTitle,
                                  for: view,
@@ -115,10 +115,10 @@ open class ChoiceItemViewBuilder {
         let choice = self.choice
         let subviews = view.subviews
         
-        view.backgroundColor = choiceBackgroundColor
+        view.backgroundColor = choiceItemBackgroundColor
         
         if let choiceTitle = subviews.filter({
-            $0.accessibilityIdentifier == choiceTitleId
+            $0.accessibilityIdentifier == choiceItemTitleId
         }).first as? UILabel {
             configure(choiceTitle: choiceTitle, using: choice, using: self)
         }
@@ -134,8 +134,8 @@ open class ChoiceItemViewBuilder {
                         using choice: ChoiceDetailType,
                         using decorator: ChoiceItemDecoratorType) {
         choiceTitle.text = choice.value
-        choiceTitle.textColor = decorator.choiceTitleTextColor
-        choiceTitle.font = decorator.choiceTitleFont
+        choiceTitle.textColor = decorator.choiceItemTitleTextColor
+        choiceTitle.font = decorator.choiceItemTitleFont
     }
 }
 
@@ -144,19 +144,19 @@ extension ChoiceItemViewBuilder: ChoiceItemViewIdentifierType {}
 
 extension ChoiceItemViewBuilder: ChoiceItemDecoratorType {
     
-    public var choiceBackgroundColor: UIColor {
-        return decorator.choiceBackgroundColor ?? .clear
+    public var choiceItemBackgroundColor: UIColor {
+        return decorator.choiceItemBackgroundColor ?? .clear
     }
     
-    public var choiceTitleFontName: String {
-        return decorator.choiceTitleFontName ?? DefaultFont.normal.value
+    public var choiceItemTitleFontName: String {
+        return decorator.choiceItemTitleFontName ?? DefaultFont.normal.value
     }
     
-    public var choiceTitleFontSize: CGFloat {
-        return decorator.choiceTitleFontSize ?? TextSize.medium.value ?? 0
+    public var choiceItemTitleFontSize: CGFloat {
+        return decorator.choiceItemTitleFontSize ?? TextSize.medium.value ?? 0
     }
     
-    public var choiceTitleTextColor: UIColor {
-        return decorator.choiceTitleTextColor ?? .darkGray
+    public var choiceItemTitleTextColor: UIColor {
+        return decorator.choiceItemTitleTextColor ?? .darkGray
     }
 }
