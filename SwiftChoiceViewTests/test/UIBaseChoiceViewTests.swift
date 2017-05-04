@@ -42,7 +42,3 @@ class UIBaseChoiceViewTests: XCTestCase {
         }
     }
 }
-
-fileprivate class ChoiceViewDecorator: ChoiceViewDecoratorType {
-    fileprivate init() {}
-}

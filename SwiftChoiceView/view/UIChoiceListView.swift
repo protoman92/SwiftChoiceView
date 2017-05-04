@@ -56,6 +56,9 @@ public final class UIChoiceListView: UIBaseCollectionView {
                 .doOnNext({[weak current, weak view] _ in
                     current?.reloadData(for: view)
                 })
+                .doOnNext({[weak current, weak view] in
+                    current?.updateHeight(for: view, using: $0, with: current)
+                })
                 .subscribe()
                 .addDisposableTo(current.disposeBag)
         }
@@ -145,6 +148,53 @@ public final class UIChoiceListView: UIBaseCollectionView {
                 .subscribe()
                 .addDisposableTo(current.disposeBag)
         }
+        
+        /// Get the current choice list's height constraint, if available.
+        ///
+        /// - Parameter view: The current UIChoiceListView instance.
+        /// - Returns: An optional NSLayoutConstraint instance.
+        func heightConstraint(for view: UICollectionView) -> NSLayoutConstraint? {
+            return view.heightConstraint
+        }
+        
+        /// Update height constraint, if applicable.
+        ///
+        /// - Parameters:
+        ///   - view: The current UIChoiceListView instance.
+        ///   - choices: The currently active choices.
+        ///   - current: The current Presenter instance.
+        func updateHeight(for view: UICollectionView?,
+                          using choices: [ChoiceSectionHolder],
+                          with current: Presenter?) {
+            guard
+                let current = current,
+                let view = view,
+                let constraint = current.heightConstraint(for: view)
+            else {
+                return
+            }
+            
+            let fitHeight = current.fitHeight(using: choices, with: current)
+            constraint.constant = fitHeight
+        }
+        
+        /// Get the height that fits all contents. Useful for height update
+        /// if there is a height constraint.
+        ///
+        /// - Parameters:
+        ///   - choices: The currently active choices.
+        ///   - current: The current Presenter instance.
+        /// - Returns: A CGFloat value.
+        func fitHeight(using choices: [ChoiceSectionHolder],
+                       with current: Presenter) -> CGFloat {
+            let itemCount = choices.flatMap({$0.items}).count
+            let sectionCount = choices.count
+            let totalIH = current.itemHeight * CGFloat(itemCount)
+            let totalIS = current.itemSpacing * CGFloat(itemCount - 1)
+            let totalSS = current.sectionSpacing * 2 * CGFloat(sectionCount)
+            let totalSH = current.sectionHeight * CGFloat(sectionCount)
+            return Swift.max(totalIH + totalIS + totalSS + totalSH, 0)
+        }
     }
 }
 
@@ -226,6 +276,16 @@ extension UIChoiceListView.Presenter {
 }
 
 extension UIChoiceListView.Presenter {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 layout collectionViewLayout: UICollectionViewLayout,
+                                 sizeForItemAt indexPath: IndexPath) -> CGSize {
+        collectionView.contentInset = UIEdgeInsets.zero
+        
+        return super.collectionView(collectionView,
+                                    layout: collectionViewLayout,
+                                    sizeForItemAt: indexPath)
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         referenceSizeForHeaderInSection section: Int)

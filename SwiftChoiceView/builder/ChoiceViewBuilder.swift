@@ -14,21 +14,22 @@ import UIKit
 /// Implement this protocol to provide subviews for a UIChoiceView instance.
 @objc public protocol ChoiceViewBuilderType: ViewBuilderType {
     
-    /// Initialize with a ChoiceViewDecoratorType instance.
+    /// Initialize with an optional ChoiceViewDecoratorType instance. If this
+    /// is nil, use default values.
     ///
     /// - Parameter decorator: A ChoiceViewDecoratorType instance.
-    init(with decorator: ChoiceViewDecoratorType)
+    init(with decorator: ChoiceViewDecoratorType?)
     
     /// Access the decorator that was set above.
-    var decorator: ChoiceViewDecoratorType { get }
+    var decorator: ChoiceViewDecoratorType? { get }
 }
 
 /// This class will be the default builder whenever a ChoiceViewBuilderType is
 /// required.
 open class ChoiceViewBuilder {
-    public let decorator: ChoiceViewDecoratorType
+    public let decorator: ChoiceViewDecoratorType?
     
-    public required init(with decorator: ChoiceViewDecoratorType) {
+    public required init(with decorator: ChoiceViewDecoratorType?) {
         self.decorator = decorator
     }
     
@@ -224,31 +225,31 @@ extension ChoiceViewBuilder: ChoiceViewDecoratorType {
     
     /// Use a default value if the decorator does not produce any title String.
     public var choiceTitle: String {
-        return decorator.choiceTitle ?? ""
+        return decorator?.choiceTitle ?? ""
     }
     
     /// Use a default value if not implemented.
     public var choiceTitleHeight: CGFloat {
-        return decorator.choiceTitleHeight ?? Size.medium.value ?? 0
+        return decorator?.choiceTitleHeight ?? Size.medium.value ?? 0
     }
     
     /// Use a default value if not implemented.
     public var choiceTitleFontName: String {
-        return decorator.choiceTitleFontName ?? DefaultFont.bold.value
+        return decorator?.choiceTitleFontName ?? DefaultFont.bold.value
     }
     
     /// Use a default value if not implemented.
     public var choiceTitleFontSize: CGFloat {
-        return decorator.choiceTitleFontSize ?? TextSize.largest.value ?? 0
+        return decorator?.choiceTitleFontSize ?? TextSize.largest.value ?? 0
     }
     
     /// Use a default value if not implemented.
     public var choiceTitleTextColor: UIColor {
-        return decorator.choiceTitleTextColor ?? .darkGray
+        return decorator?.choiceTitleTextColor ?? .darkGray
     }
     
     public var choiceTitleTextAlignment: NSTextAlignment {
-        return decorator.choiceTitleTextAlignment ?? .center
+        return decorator?.choiceTitleTextAlignment ?? .center
     }
 }
 

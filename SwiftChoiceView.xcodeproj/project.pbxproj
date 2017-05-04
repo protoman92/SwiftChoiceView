@@ -18,7 +18,6 @@
 		D319069B1EB438F000BCE271 /* ChoiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319069A1EB438F000BCE271 /* ChoiceDetail.swift */; };
 		D319069D1EB43CD400BCE271 /* ChoiceListViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319069C1EB43CD400BCE271 /* ChoiceListViewDecorator.swift */; };
 		D31DB0561EB84B0C00473178 /* UIBaseChoiceViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31DB0551EB84B0C00473178 /* UIBaseChoiceViewTests.swift */; };
-		D31DB05B1EB84FC400473178 /* MockChoiceSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31DB05A1EB84FC400473178 /* MockChoiceSection.swift */; };
 		D31DB05C1EB8539600473178 /* ChoiceDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319069A1EB438F000BCE271 /* ChoiceDetail.swift */; };
 		D31DB05D1EB8539600473178 /* ChoiceListViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D319069C1EB43CD400BCE271 /* ChoiceListViewDecorator.swift */; };
 		D31DB05E1EB8539600473178 /* ChoiceSectionHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D30A0C891EB50889001BF816 /* ChoiceSectionHolder.swift */; };
@@ -33,6 +32,8 @@
 		D382A7B11EB6D3DB003CDDBC /* ChoiceItemDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */; };
 		D38D8F611EBA02190045AF9E /* ChoiceViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38D8F601EBA02190045AF9E /* ChoiceViewDecorator.swift */; };
 		D38D8F621EBA03210045AF9E /* ChoiceViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38D8F601EBA02190045AF9E /* ChoiceViewDecorator.swift */; };
+		D38D8F661EBAF18C0045AF9E /* UIBasicChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38D8F651EBAF18C0045AF9E /* UIBasicChoiceView.swift */; };
+		D38D8F681EBAF5C60045AF9E /* BasicChoiceViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38D8F671EBAF5C60045AF9E /* BasicChoiceViewBuilder.swift */; };
 		D3FF279C1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279B1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift */; };
 		D3FF279E1EB6EE010032A2C1 /* ChoiceViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FF279D1EB6EE010032A2C1 /* ChoiceViewBuilder.swift */; };
 /* End PBXBuildFile section */
@@ -64,10 +65,11 @@
 		D319069C1EB43CD400BCE271 /* ChoiceListViewDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceListViewDecorator.swift; path = model/ChoiceListViewDecorator.swift; sourceTree = "<group>"; };
 		D31DB0551EB84B0C00473178 /* UIBaseChoiceViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBaseChoiceViewTests.swift; path = test/UIBaseChoiceViewTests.swift; sourceTree = "<group>"; };
 		D31DB0581EB84B1C00473178 /* MockChoice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockChoice.swift; path = util/MockChoice.swift; sourceTree = "<group>"; };
-		D31DB05A1EB84FC400473178 /* MockChoiceSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockChoiceSection.swift; path = util/MockChoiceSection.swift; sourceTree = "<group>"; };
 		D31DB0661EB862BA00473178 /* UIChoiceListViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIChoiceListViewTests.swift; path = test/UIChoiceListViewTests.swift; sourceTree = "<group>"; };
 		D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceItemDecorator.swift; path = model/ChoiceItemDecorator.swift; sourceTree = "<group>"; };
 		D38D8F601EBA02190045AF9E /* ChoiceViewDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceViewDecorator.swift; path = model/ChoiceViewDecorator.swift; sourceTree = "<group>"; };
+		D38D8F651EBAF18C0045AF9E /* UIBasicChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBasicChoiceView.swift; path = view/UIBasicChoiceView.swift; sourceTree = "<group>"; };
+		D38D8F671EBAF5C60045AF9E /* BasicChoiceViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicChoiceViewBuilder.swift; path = builder/BasicChoiceViewBuilder.swift; sourceTree = "<group>"; };
 		D3E0562D3EEC2FD2AA019CB9 /* Pods-SwiftChoiceViewTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftChoiceViewTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftChoiceViewTests/Pods-SwiftChoiceViewTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3FF279B1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIBaseChoiceView.swift; path = view/UIBaseChoiceView.swift; sourceTree = "<group>"; };
 		D3FF279D1EB6EE010032A2C1 /* ChoiceViewBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChoiceViewBuilder.swift; path = builder/ChoiceViewBuilder.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		D31906791EB42DDE00BCE271 /* SwiftChoiceView */ = {
 			isa = PBXGroup;
 			children = (
+				D37908221EBB4F690000FD0C /* default */,
 				D31906951EB4308300BCE271 /* model */,
 				D31906921EB4304000BCE271 /* builder */,
 				D31906911EB42F6A00BCE271 /* view */,
@@ -163,6 +166,7 @@
 			children = (
 				D31906931EB4305500BCE271 /* UIChoiceListView.swift */,
 				D3FF279B1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift */,
+				D38D8F651EBAF18C0045AF9E /* UIBasicChoiceView.swift */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -185,6 +189,7 @@
 				D30A0C891EB50889001BF816 /* ChoiceSectionHolder.swift */,
 				D382A7B01EB6D3DB003CDDBC /* ChoiceItemDecorator.swift */,
 				D38D8F601EBA02190045AF9E /* ChoiceViewDecorator.swift */,
+				D38D8F671EBAF5C60045AF9E /* BasicChoiceViewBuilder.swift */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -202,9 +207,15 @@
 			isa = PBXGroup;
 			children = (
 				D31DB0581EB84B1C00473178 /* MockChoice.swift */,
-				D31DB05A1EB84FC400473178 /* MockChoiceSection.swift */,
 			);
 			name = util;
+			sourceTree = "<group>";
+		};
+		D37908221EBB4F690000FD0C /* default */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = default;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -403,7 +414,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D38D8F661EBAF18C0045AF9E /* UIBasicChoiceView.swift in Sources */,
 				D31906971EB4309800BCE271 /* ChoiceViewIdentifier.swift in Sources */,
+				D38D8F681EBAF5C60045AF9E /* BasicChoiceViewBuilder.swift in Sources */,
 				D3FF279C1EB6EC7A0032A2C1 /* UIBaseChoiceView.swift in Sources */,
 				D319069D1EB43CD400BCE271 /* ChoiceListViewDecorator.swift in Sources */,
 				D319069B1EB438F000BCE271 /* ChoiceDetail.swift in Sources */,
@@ -432,7 +445,6 @@
 				D31DB0631EB8539600473178 /* UIChoiceListView.swift in Sources */,
 				D31DB0641EB8539600473178 /* UIBaseChoiceView.swift in Sources */,
 				D31DB0651EB8539600473178 /* MockChoice.swift in Sources */,
-				D31DB05B1EB84FC400473178 /* MockChoiceSection.swift in Sources */,
 				D31DB0561EB84B0C00473178 /* UIBaseChoiceViewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

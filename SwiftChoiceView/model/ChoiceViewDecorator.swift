@@ -45,3 +45,7 @@ public extension ChoiceViewDecoratorType {
         return UIFont(name: fontName, size: fontSize)
     }
 }
+
+/// Implement this protocol to provide appearance configurations for
+/// UIBasicChoiceView.
+@objc public protocol BasicChoiceViewDecoratorType: ChoiceViewDecoratorType {}
